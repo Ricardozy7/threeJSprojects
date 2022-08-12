@@ -11,6 +11,9 @@ import { Block, useBlock } from "./blocks"
 import state from "./store"
 import "./styles.css"
 
+import Hero from "./sections/Hero"
+import Banner from "./sections/Hero/Banner"
+
 function Startup() {
   const ref = useRef()
   useFrame(() => (ref.current.material.opacity = lerp(ref.current.material.opacity, 0, 0.025)))
@@ -89,16 +92,28 @@ function Content() {
 }
 
 function App() {
-  const scrollArea = useRef()
-  const onScroll = (e) => (state.top.current = e.target.scrollTop)
-  useEffect(() => void onScroll({ target: scrollArea.current }), [])
+  // const scrollArea = useRef()
+  // const onScroll = (e) => (state.top.current = e.target.scrollTop)
+  // useEffect(() => void onScroll({ target: scrollArea.current }), [])
   return (
-    <>
+    <div>
+      <Banner />
+    </div>
+    
+  )
+}
+
+ReactDOM.render(<App />, document.getElementById("root"))
+
+
+{/* <div style={{ width: 500, heigth: 500 }}>
       <Canvas linear dpr={[1, 2]} orthographic camera={{ zoom: state.zoom, position: [0, 0, 500] }}>
         <Suspense fallback={<Html center className="loading" children="Loading..." />}>
           <Content />
-          {/* <Diamonds /> */}
+      
+          
           <Startup />
+          <Hero />
         </Suspense>
       </Canvas>
       <div className="scrollArea" ref={scrollArea} onScroll={onScroll}>
@@ -106,8 +121,4 @@ function App() {
           <div key={index} id={"0" + index} style={{ height: `${(state.pages / state.sections) * 100}vh` }} />
         ))}
       </div>
-    </>
-  )
-}
-
-ReactDOM.render(<App />, document.getElementById("root"))
+    </div> */}

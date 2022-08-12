@@ -11,6 +11,9 @@
   ],
   "main": "src/index.js",
   "dependencies": {
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "@mui/material": "^5.10.0",
     "@react-three/drei": "4.1.8",
     "@react-three/fiber": "6.0.14",
     "lerp": "1.0.3",
